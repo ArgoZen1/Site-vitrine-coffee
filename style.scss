@@ -2,10 +2,26 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300&display=swap");
 
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    width: 100%;
+    overflow-x: hidden;
+}
 body {
     background: rgb(78, 48, 41);
     background: linear-gradient(180deg, rgba(78, 48, 41, 1) 0%, rgba(51, 27, 21, 1) 50%);
     font-family: "Signika", sans-serif;
+    width: 100%;
+    overflow-x: hidden;
+}
+p,
+h1,
+h2 {
+    color: white;
 }
 li {
     list-style: none;
@@ -16,9 +32,10 @@ a {
     text-decoration: none;
 }
 nav {
+    padding-top: 1rem;
     display: flex;
     width: 100%;
-    height: 100px;
+    min-height: 100px;
     border-bottom: 2px dashed #856656;
     ul {
         display: flex;
@@ -60,6 +77,10 @@ nav {
         display: flex;
         gap: 2rem;
         padding: 1.5rem;
+        .button-padding {
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
         button {
             cursor: pointer;
             background-color: white;
@@ -74,6 +95,7 @@ nav {
     }
 }
 .first-container-padding {
+    padding-top: 3rem;
     padding-bottom: 20rem;
 
     .container-flex-first {
@@ -131,6 +153,10 @@ nav {
             background-color: #dfb574;
             font-size: 1.2rem;
             font-family: "Signika", sans-serif;
+            &:hover {
+                cursor: pointer;
+                transform: scale(1.02);
+            }
         }
     }
 }
@@ -139,6 +165,7 @@ nav {
     border-top-left-radius: 10rem;
     border-top-right-radius: 10rem;
     padding-bottom: 3rem;
+    width: auto;
 }
 aside {
     display: flex;
@@ -150,14 +177,17 @@ aside {
             font-size: 1.4rem;
             color: white;
             line-height: percentage($number: 1.4);
+            padding-left: 2rem;
         }
     }
     .container-img-coffe {
         display: flex;
         align-items: center;
         justify-content: space-around;
+        // flex-wrap: wrap;
         width: 50%;
         margin-top: -10rem;
+        margin-left: 2rem;
         p {
             color: white;
         }
@@ -167,17 +197,108 @@ aside {
             transition: 0.3s ease-in-out;
             &:hover {
                 transition: all 0.5s ease-out;
-                transform:scale(1.1)
+                transform: scale(1.1);
             }
             img {
                 width: 200px;
                 &:hover {
                     cursor: pointer;
-                
-                    
-                } 
+                }
+            }
+        }
+    }
+}
+@media screen and (max-width: 1108px) {
+    h1 {
+        font-size: 4rem !important;
+    }
+    nav {
+        flex-direction: column;
+        align-items: center;
+        .container-img-title {
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 1rem;
+            // margin-left: 2.3rem;
+        }
+        ul {
+            flex-direction: column;
+            align-items: center;
+        }
+    }
+}
+
+@media screen and (max-width: 1646px) {
+    .first-container-padding {
+        flex-direction: column;
+        justify-content: center;
+        flex-wrap: nowrap;
+        .container-img-section {
+            min-width: 100%;
+            img {
+                min-width: 100%;
+                margin-left: 3rem;
+            }
+        }
+        .container-flex-first {
+            flex-direction: column;
+            justify-content: center;
+            flex-wrap: nowrap;
+        }
+    }
+}
+@media screen and (min-width: 1001px) {
+    .first-container-padding {
+        .container-flex-first {
+            .container-img-section {
+                min-width: 45% !important;
+                img {
+                    min-width: 50% !important;
+                }
             }
         }
     }
 }
 
+@media screen and (max-width: 1265px) {
+    .background-color-section {
+        display: flex;
+        flex-direction: column;
+        aside {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            .container-text {
+                p {
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width: 627px) {
+    nav {
+        .container-button-nav {
+            flex-direction: column;
+        }
+    }
+    .background-color-section {
+        aside {
+            p {
+                font-size: 1.2rem;
+                text-align: center;
+                padding-right: 1.3rem;
+            }
+            .container-img-coffe {
+                flex-direction: column;
+                .img-and-text {
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+                    align-content: center;
+                }
+            }
+        }
+    }
+}
